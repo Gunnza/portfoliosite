@@ -1,46 +1,65 @@
 import React, { Component } from 'react';
-import { Grid, Cell, List, ListItem, ListItemContent } from 'react-mdl';
+import axios from 'axios';
+import {Form, FormGroup, Input, Label, Button} from 'reactstrap'
+const REACT_APP_API = 'http://localhost/react-contact-form/api/contact/index.php'
 
 
 class Contact extends Component {
+
+  state = {
+       name: '',
+       message: '',
+       email: '',
+       sent: false,
+       buttonText: 'Send Message'
+   }
+
+   formSubmit = (e) => {
+   e.preventDefault()
+
+   this.setState({
+       buttonText: '...sending'
+   })
+
+   let data = {
+       name: this.state.name,
+       email: this.state.email,
+       message: this.state.message
+   }
+
+   axios.post('API_URI', data)
+   .then( res => {
+       this.setState({ sent: true }, this.resetForm())
+   })
+   .catch( () => {
+     console.log('Message not sent')
+   })
+ }
+
   render() {
     return(
-      <div className="contact-body">
-        <Grid className="contact-grid">
-          <Cell col={6}>
-            <h2>Christopher McGovern</h2>
-            <img
-              src={require('../images/profilepic.jpg')}
-              alt="avatar"
-              style={{height: '250px'}}
-               />
-             <p style={{ width: '75%', margin: 'auto', paddingTop: '1em'}}></p>
+      <div>
+        <form className="contact-form" onSubmit={ (e) => this.formSubmit(e)}>
+          <label class="message" htmlFor="message-input">Your Message</label>
+          <textarea onChange={e => this.setState({ message: e.target.value})} name="message" class="message-input" type="text" placeholder="Please write your message here" value={this.state.message} required/>
 
-          </Cell>
-          <Cell col={6}>
-            <h2>Contact Me</h2>
-            <hr/>
+          <label class="message-name" htmlFor="message-name">Your Name</label>
+          <input onChange={e => this.setState({ name: e.target.value})} name="name" class="message-name" type="text" placeholder="Your Name" value={this.state.name}/>
 
-            <div className="contact-list">
-              <List>
+          <label class="message-email" htmlFor="message-email">Your Email</label>
+          <input onChange={(e) => this.setState({ email: e.target.value})} name="email" class="message-email" type="email" placeholder="your@email.com" required value={this.state.email} />
 
-                <ListItem>
-                  <ListItemContent style={{fontSize: '30px', fontFamily: 'Anton'}}>
-                    <i className="fa fa-envelope" aria-hidden="true"/>
-                    mcgovern-c4@ulster.ac.uk
-                  </ListItemContent>
-                </ListItem>
-
-
-
-
-              </List>
-            </div>
-          </Cell>
-        </Grid>
+          <div className="button--container">
+            <button type="submit" className="button button-primary">{ this.state.buttonText }</button>
+          </div>
+        </form>
       </div>
+
     )
   }
+
 }
+
+
 
 export default Contact;

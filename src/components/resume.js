@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Grid, Cell } from 'react-mdl';
 import Education from './education';
 import Experience from './experience';
-import Skills from './skills';
+
 
 
 class Resume extends Component {
@@ -12,19 +12,13 @@ class Resume extends Component {
         <Grid>
           <Cell col={4}>
             <div style={{textAlign: 'center'}}>
-              <img
-                src={require('../images/profilepic.jpg')}
-                alt="avatar"
-                style={{height: '200px'}}
-                 />
+
             </div>
 
             <h2 style={{paddingTop: '2em'}}>Christopher McGovern</h2>
-            <h4 style={{color: 'grey'}}>Programmer</h4>
+            <h4 style={{color: 'grey'}}>Graduate Developer</h4>
             <hr style={{borderTop: '3px solid #833fb2', width: '50%'}}/>
-            <p>I have developed a strong technical ability during my Degree. I started learning programming with Java and have completed modules in Object Orientated Programming and Algorithms and Data Structures. Many modules required me to have a good understanding of programming including mobile app development and games development.
-My degree has also helped me develop strong project management and presentation skills as I have completed many projects throughout the years solo and with a team. Pitching projects to the class was also an important part of some modules.
-I would relish the opportunity to work with a team on software projects were I will utilise these skills and develop them more.
+            <p>Games Development Graduate ready for an entry-level role in Software Development who enjoys working with a team and is passionate about learning new technologies, building projects and solving problems. Capable of writing, testing and debugging code within an Agile environment and also have knowledge of Object-Oriented -Programming. I am eager for the opportunity to continue learning and to grow my career.
 </p>
             <hr style={{borderTop: '3px solid #833fb2', width: '50%'}}/>
             <h5>Address</h5>
@@ -32,7 +26,7 @@ I would relish the opportunity to work with a team on software projects were I w
             <h5>Email</h5>
             <p>mcgovern-c4@ulster.ac.uk</p>
             <h5>Web</h5>
-            <p>mywebsite.com</p>
+            <p>https://gunnza.github.io/portfoliosite/#/</p>
             <hr style={{borderTop: '3px solid #833fb2', width: '50%'}}/>
           </Cell>
           <Cell className="resume-right-col" col={8}>
@@ -61,17 +55,26 @@ I would relish the opportunity to work with a team on software projects were I w
               <Experience
                 startYear={2013}
                 endYear={2014}
-                jobName="Student Placement Unpaid - Uproar Comics"
-                jobDescription="My role at Uproar Comics was to help complete mini-games for the digital comics. One project was to develop a 2D Space-Shooter. Another Student and I worked together to create the game, researching online for help creating certain mechanics or getting help from the other experienced developers. We completed the mini-game that was added to a chapter of the digital comic. This experience enhanced my skills in Object orientated Programming, C# and Project Management. "
+                jobName="Games Developer - Uproar Comics"
+                jobDescription="My role at Uproar Comics was to help complete mini-games for the digital comics. One project was to develop a 2D Space-Shooter. Another Colleague and I worked together to create the game, researching online for help creating certain mechanics or getting help from the other experienced developers. We completed the mini-game that was added to a chapter of the digital comic. This experience enhanced my skills in Object orientated Programming, C# and Project Management. "
                 />
 
-                <Experience
-                  startYear={2017}
-                  endYear={2019}
-                  jobName="Dominos Delivery Driver"
-                  jobDescription="In Dominos I was to deliver food orders to customer’s houses. Customer Service skills were important so that when I needed to call a customer I was able to communicate effectively to find their house ASAP.
-     "
-                  />
+              <Experience
+                startYear={2019}
+                endYear={"Now"}
+                jobName="Omniplex Cinema Staff"
+                jobDescription="Serving Customers during busy periods when films are starting and cleaning the cinema studios when they are ready"
+
+                />
+              <Experience
+                startYear={2017}
+                endYear={2019}
+                jobName="Dominos Delivery Driver"
+                jobDescription="In Dominos I was to deliver food orders to customer’s houses. Customer Service skills were important so that when I needed to call a customer I was able to communicate effectively to find their house ASAP.
+   "
+                />
+
+
 
               <hr style={{borderTop: '3px solid #e22947'}} />
 
